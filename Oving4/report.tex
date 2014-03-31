@@ -123,7 +123,11 @@ Siden løvnodene er indeksposter med pekere til blokkidentifikatorer har dette B
 
 \subsection{b)}
 
-Vi trenger en diskaksess for rotblokka, og en til for en av de to blokkene på neste nivå. Deretter må løvnodeblokka leses inn, oppdateres og skrives tilbake. (Tre aksesser her) Til sist må det samme gjøres for datalagringsblokka. (Tre til her) Til sammen får vi åtte aksesser. Dette under antagelsen at ingen av blokkene ligger i buffer.
+Vi trenger en diskaksess for rotblokka, og en til for en av de to blokkene på neste nivå. Deretter må løvnodeblokka leses inn, oppdateres og skrives tilbake. (To aksesser her) Til sist må det samme gjøres for datalagringsblokka. (To til her) Til sammen får vi seks aksesser. Dette under antagelsen at ingen av blokkene ligger i buffer.
+
+\subsection{c)}
+
+For å finne og oppdatere en løvnodepost trenger vi fire diskaksesser. (Rotblokk, nivå 2, lese løvnode blokk, skrive tilbake) Antar vi 10 ms/aksess får vi total aksesstid på 40 ms.
 
 \newpage
 \input{opg3}
