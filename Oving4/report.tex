@@ -16,11 +16,41 @@
 
 \subsection{a)}
 
-\textbf{Nøkkel:} Den eller de identifiserende attributtene ved en tabell. Må være unikt identifiserende for hver rad i tabellen. Kan være en enkelt attributt eller en mengde attributter.
+\textbf{Nøkkel:} Den enkelte eller den minimale mengden identifiserende attributtene ved en tabell. Må være unikt identifiserende for hver rad i tabellen. Kan være en enkelt attributt eller en mengde attributter.
 
 
 \textbf{Supernøkkel:} En mengde attributter i en tabell som sammen fungerer som nøkkel for alle rader i tabellen. Kan også defineres som en mengde av attributter i en relasjon der alle andre attributter er funksjonelt avhengige av supernøkkelattributtene.
-\textbf{Funksjonell avhengighet:} 
+
+
+\textbf{Funksjonell avhengighet:} En funksjonell avhengighet $X \rightarrow Y$, der $X$ og $Y$ er mengder av attributter, betyr at verdiene av attributtene i $X$ bestemmer verdiene av $Y$.
+
+\subsection{b)}
+
+Tillukningen ($X^+$) til en mengde attributter $X$ er mengden av alle attributter i relasjonen R som er funksjonelt avhengig av $X$.
+
+Algoritme for $X^+$, med hensyn på en mengde funksjonelle avhengigheter F:
+
+\begin{lstlisting}[language=Python, caption=Tillukningsalgoritme, mathescape]
+$X^+$ = $X$
+$X^+_{gammel}$ = null
+while not $X^+_{gammel} == X^+$:
+    $X^+_{gammel}$ = $X^+$
+    for functional dependency $Y \rightarrow Z$ in F:
+        if $Y$ in $X^+$:
+            $X^+$ = $X^+ \cup Z$
+\end{lstlisting}
+
+\subsection{c)}
+
+\begin{gather*}
+a^+ = \{a, e\} \\
+ab^+ = \{a, b, c, d, e\} \\
+e^+ = \{e\}
+\end{gather*}
+
+\subsection{d)}
+
+For at en mengde attributter skal være en supernøkkel, må tillukningen av mengden inneholde alle attributter i relasjonen. For en mengde attributter $X$ fra en relasjon $R$ avgjør vi om $X$ er en supernøkkel ved å finne $X^+$ og sjekke om $X^+$ inneholder alle attributter i $R$.
 
 \section{Oppgave 2}
 
