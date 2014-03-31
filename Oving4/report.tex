@@ -101,6 +101,21 @@ For at en relasjon $R$ skal være på tredje normalform, må følgende krav oppf
 \item Alle attributter som ikke er en del av en nøkkel, er direkte avhengig av hele nøkkelen. Dvs. at transitiv avhengighet ikke er lov
 \end{itemize}
 
+\subsection{h)}
+
+Vi har en relasjon $R(A,B,C,D)$ med funksjonelle avhengigheter $F = \{A \rightarrow B, C \rightarrow D\}$ som ikke er på 3NF. For å dekomponere til relasjoner som oppfyller kravene for 3NF, gjør vi følgende:
+
+\begin{enumerate}
+\item Finner et såkalt canonical cover $F_C$ for $F$. (I dette tilfellet er $F_C = F$)
+\item For hver FD $X \rightarrow A \in F_C$, lager vi en relasjon $XA$ med $X$ som nøkkel.
+    \begin{itemize}
+    \item For oss blir dette $R_1(A,B)$ med $A$ som nøkkel og $R_2(C,D)$ med $C$ som nøkkel.
+    \end{itemize}
+\item De resterende attributtene og nøkkel samler vi i en siste relasjon. I vårt tilfelle inneholder denne relasjonen kun nøkkelen fra den opprinnelige relasjonen, nemlig $R_3(A,C)$.
+\end{enumerate}
+
+Ser at denne fremgangsmåten er fulgt for å komme fra til dekomponeringen i oppgaven. Ettersom denne fremgangsmåten bevarer funksjonelle avhengigheter og garanterer lossless-join, er dette et godt valg.
+
 \section{Oppgave 2}
 
 \newpage
