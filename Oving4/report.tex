@@ -52,4 +52,53 @@ e^+ = \{e\}
 
 For at en mengde attributter skal være en supernøkkel, må tillukningen av mengden inneholde alle attributter i relasjonen. For en mengde attributter $X$ fra en relasjon $R$ avgjør vi om $X$ er en supernøkkel ved å finne $X^+$ og sjekke om $X^+$ inneholder alle attributter i $R$.
 
+For at en supernøkkel også skal være en nøkkel, må den være \textit{minimal}. Dvs. at vi kan finne ut om en supernøkkel $SK$ også er en nøkkel ved å fjerne en og en attributt og sjekke om hver restmengde er en supernøkkel.
+
+\subsection{e)}
+
+For at projeksjonene $R_1$ og $R_2$ skal ha tapsløs-join-egenskapen må det gå an å joine $R_1$ og $R_2$ sammen og få $R$. Formelt har vi at $R_1$ og $R_2$ har tapsløs-join-egenskapen hvis og bare hvis
+
+\begin{gather*}
+(R_1 \cap R_2 \rightarrow R_1 - R_2 ) \in F^+ \vee (R_1 \cap R_2 \rightarrow R_2 - R_1) \in F^+
+\end{gather*}
+
+Det er naturlig å anta at det kun er mulig å ha tapsløs-join dersom $R_1 \cap R_2 \rightarrow R_1 \vee R_2$. Funksjonelle avhengigheter i R kan gi oss den formelle definisjonen over, der snittet mellom $R_1$ og $R_2$ ikke nødvendigvis er $R_1$ eller $R_2$. Dette på grunn av at funksjonelle avhengigheter kan gi oss muligheten til å manipulere snittet slik at det blir lik enten den ene eller den andre.
+
+\subsection{f)}
+
+Vi har relasjonen $R(a,b,c,d)$ med $F = \{b \rightarrow c\}$. Dette gir oss:
+
+\begin{enumerate}
+\item $R_1(a,b,c)$ og $R_2(b,c,d)$
+    \begin{itemize}
+        \item $R_1 \cap R_2 \rightarrow \{b,c\}$
+        \item $R_1 - R_2 \rightarrow \{a\} \notin F^+$
+        \item $R_2 - R_2 \rightarrow \{d\} \notin F^+$
+        \item Ikke tapsløs join
+    \end{itemize}
+\item $R_1(a,b,d)$ og $R_2(b,c,d)$
+    \begin{itemize}
+        \item $R_1 \cap R_2 \rightarrow \{b,d\}$
+        \item $R_1 - R_2 \rightarrow \{a\} \notin F^+$
+        \item $R_2 - R-1 \rightarrow \{c\} \in F^+$
+        \item Tapsløs join
+    \end{itemize}
+\item $R_1(a,b,d)$ og $R_2(b,c)$
+    \begin{itemize}
+    \item $R_1 \cap R_2 \rightarrow \{b\}$
+    \item $R_1 - R_2 \rightarrow \{a,d\} \notin F^+$
+    \item $R_2 - R_1 \rightarrow \{c\} \in F^+$
+    \item Tapsløs join
+    \end{itemize}
+\end{enumerate}
+
+\subsection{g)}
+
+For at en relasjon $R$ skal være på tredje normalform, må følgende krav oppfylles:
+
+\begin{itemize}
+\item R er på andre normalform
+\item Alle attributter som ikke er en del av en nøkkel, er direkte avhengig av hele nøkkelen. Dvs. at transitiv avhengighet ikke er lov
+\end{itemize}
+
 \end{document}
