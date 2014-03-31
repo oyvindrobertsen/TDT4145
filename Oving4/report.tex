@@ -22,4 +22,145 @@
 \textbf{Supernøkkel:} En mengde attributter i en tabell som sammen fungerer som nøkkel for alle rader i tabellen. Kan også defineres som en mengde av attributter i en relasjon der alle andre attributter er funksjonelt avhengige av supernøkkelattributtene.
 \textbf{Funksjonell avhengighet:} 
 
+\section{Oppgave 2}
+
+\newpage
+\section{Oppgave 3}
+~\\
+Setter inn verdien $12$: $12 \mod 5 = 2$\\
+\begin{tabular}{|l|l|l|}
+    \hline
+    Adresse & Post 1 & Post 2 \\
+    0       & ~      & ~      \\
+    1       & ~      & ~      \\
+    2       & 12     & ~      \\
+    3       & ~      & ~      \\
+    4       & ~      & ~      \\ \hline
+\end{tabular}
+
+~\\
+Setter inn verdien $9$: $9 \mod 5 = 4$\\
+\begin{tabular}{|l|l|l|}
+    \hline
+    Adresse & Post 1 & Post 2 \\
+    0       & ~      & ~      \\
+    1       & ~      & ~      \\
+    2       & 12     & ~      \\
+    3       & ~      & ~      \\
+    4       & 9      & ~      \\ \hline
+\end{tabular}
+
+~\\
+Setter inn verdien $3$: $3 \mod 5 = 3$\\
+\begin{tabular}{|l|l|l|}
+    \hline
+    Adresse & Post 1 & Post 2 \\
+    0       & ~      & ~      \\
+    1       & ~      & ~      \\
+    2       & 12     & ~      \\
+    3       & 3      & ~      \\
+    4       & 9      & ~      \\ \hline
+\end{tabular}
+
+~\\
+Setter inn verdien $18$: $18 \mod 5 = 3$\\
+Her må altså post 2 tas i bruk.\\
+\begin{tabular}{|l|l|l|}
+    \hline
+    Adresse & Post 1 & Post 2 \\
+    0       & ~      & ~      \\
+    1       & ~      & ~      \\
+    2       & 12     & ~      \\
+    3       & 3      & 18      \\
+    4       & 9      & ~      \\ \hline
+\end{tabular}
+
+~\\
+Setter inn verdien $22$: $22 \mod 5 = 2$\\
+\begin{tabular}{|l|l|l|}
+    \hline
+    Adresse & Post 1 & Post 2 \\
+    0       & ~      & ~      \\
+    1       & ~      & ~      \\
+    2       & 12     & 22     \\
+    3       & 3      & 18     \\
+    4       & 9      & ~      \\ \hline
+\end{tabular}
+
+~\\
+Setter inn verdien $1$: $1 \mod 5 = 1$\\
+\begin{tabular}{|l|l|l|}
+    \hline
+    Adresse & Post 1 & Post 2 \\
+    0       & ~      & ~      \\
+    1       & 1      & ~      \\
+    2       & 12     & 22     \\
+    3       & 3      & 18     \\
+    4       & 9      & ~      \\ \hline
+\end{tabular}
+
+~\\
+Setter inn verdien $37$: $37 \mod 5 = 2$\\
+Det finnes ingen ledig post for verdien.\\
+\begin{tabular}{|l|l|l|l}
+    \hline
+    Adresse & Post 1 & Post 2	& ~ \\
+    0       & ~      & ~      \\
+    1       & 1      & ~      \\
+    2       & 12     & 22	& 37 \\
+    3       & 3      & 18     \\
+    4       & 9      & ~      \\ \hline
+\end{tabular}
+
+~\\
+Setter inn verdien $11$: $11 \mod 5 = 1$\\
+\begin{tabular}{|l|l|l|lll}
+    \hline
+    Adresse & Post 1 & Post 2	& ~ \\
+    0       & ~      & ~      \\
+    1       & 1      & 11      \\
+    2       & 12     & 22	& 37 \\
+    3       & 3      & 18     \\
+    4       & 9      & ~      \\ \hline
+\end{tabular}
+
+
+~\\
+Setter inn verdien $87$: $87 \mod 5 = 2$\\
+Det finnes ingen ledig post for verdien.\\
+\begin{tabular}{|l|l|l|lll}
+    \hline
+    Adresse & Post 1 & Post 2	& ~ \\
+    0       & ~      & ~      \\
+    1       & 1      & 11      \\
+    2       & 12     & 22	& 37	&   87 \\
+    3       & 3      & 18     \\
+    4       & 9      & ~      \\ \hline
+\end{tabular}
+
+~\\
+Setter inn verdien $2$: $2 \mod 5 = 2$\\
+Det finnes ingen ledig post for verdien.\\
+\begin{tabular}{|l|l|l|lll}
+    \hline
+    Adresse & Post 1 & Post 2	& ~ \\
+    0       & ~      & ~      \\
+    1       & 1      & 11      \\
+    2       & 12     & 22	& 37	&   87	&   2\\
+    3       & 3      & 18     \\
+    4       & 9      & ~      \\ \hline
+\end{tabular}
+
+~\\
+Setter inn verdien $1$: $1 \mod 5 = 1$\\
+Det finnes ingen ledig post for verdien.\\
+\begin{tabular}{|l|l|l|lll}
+    \hline
+    Adresse & Post 1 & Post 2	& ~ \\
+    0       & ~      & ~      \\
+    1       & 1      & 11   &	1      \\
+    2       & 12     & 22	& 37	&   87	&   2\\
+    3       & 3      & 18     \\
+    4       & 9      & ~      \\ \hline
+\end{tabular}
 \end{document}
