@@ -34,10 +34,10 @@ Algoritme for $X^+$, med hensyn på en mengde funksjonelle avhengigheter F:
 $X^+$ = $X$
 $X^+_{gammel}$ = null
 while not $X^+_{gammel} == X^+$:
-$X^+_{gammel}$ = $X^+$
-for functional dependency $Y \rightarrow Z$ in F:
-if $Y$ in $X^+$:
-$X^+$ = $X^+ \cup Z$
+    $X^+_{gammel}$ = $X^+$
+    for functional dependency $Y \rightarrow Z$ in F:
+        if $Y$ in $X^+$:
+            $X^+$ = $X^+ \cup Z$
 \end{lstlisting}
 
 \subsection{c)}
