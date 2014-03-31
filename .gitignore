@@ -1,6 +1,7 @@
 *.un~
 .DS_Store
 
+*.pdf
 *.aux
 *.glo
 *.idx
