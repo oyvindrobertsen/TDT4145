@@ -34,18 +34,18 @@ Algoritme for $X^+$, med hensyn på en mengde funksjonelle avhengigheter F:
 $X^+$ = $X$
 $X^+_{gammel}$ = null
 while not $X^+_{gammel} == X^+$:
-    $X^+_{gammel}$ = $X^+$
-    for functional dependency $Y \rightarrow Z$ in F:
-        if $Y$ in $X^+$:
-            $X^+$ = $X^+ \cup Z$
+$X^+_{gammel}$ = $X^+$
+for functional dependency $Y \rightarrow Z$ in F:
+if $Y$ in $X^+$:
+$X^+$ = $X^+ \cup Z$
 \end{lstlisting}
 
 \subsection{c)}
 
 \begin{gather*}
-a^+ = \{a, e\} \\
-ab^+ = \{a, b, c, d, e\} \\
-e^+ = \{e\}
+    a^+ = \{a, e\} \\
+    ab^+ = \{a, b, c, d, e\} \\
+    e^+ = \{e\}
 \end{gather*}
 
 \subsection{d)}
@@ -131,66 +131,64 @@ Setter inn verdien $1$: $1 \mod 5 = 1$\\
 
 ~\\
 Setter inn verdien $37$: $37 \mod 5 = 2$\\
-Det finnes ingen ledig post for verdien.\\
-\begin{tabular}{|l|l|l|l}
+Det finnes ingen ledig post for verdien, så vi oppretter en overflyts-blokk med to nye poster.\\
+\begin{tabular}{|l|l|l|l|l|}
     \hline
-    Adresse & Post 1 & Post 2	& ~ \\
-    0       & ~      & ~      \\
-    1       & 1      & ~      \\
-    2       & 12     & 22	& 37 \\
-    3       & 3      & 18     \\
-    4       & 9      & ~      \\ \hline
+    Adresse & Post 1 & Post 2 & Of1 p1 & Of1 p2 \\
+    0       & ~      & ~      & ~      & ~      \\
+    1       & 1      & ~      & ~      & ~      \\
+    2       & 12     & 22     & 37     & ~      \\
+    3       & 3      & 18     & ~      & ~      \\
+    4       & 9      & ~      & ~      & ~      \\ \hline
 \end{tabular}
 
 ~\\
 Setter inn verdien $11$: $11 \mod 5 = 1$\\
-\begin{tabular}{|l|l|l|lll}
+\begin{tabular}{|l|l|l|l|l|}
     \hline
-    Adresse & Post 1 & Post 2	& ~ \\
-    0       & ~      & ~      \\
-    1       & 1      & 11      \\
-    2       & 12     & 22	& 37 \\
-    3       & 3      & 18     \\
-    4       & 9      & ~      \\ \hline
+    Adresse & Post 1 & Post 2 & Of1 p1 & Of1 p2 \\
+    0       & ~      & ~      & ~      & ~      \\
+    1       & 1      & 11     & ~      & ~      \\
+    2       & 12     & 22     & 37     & ~      \\
+    3       & 3      & 18     & ~      & ~      \\
+    4       & 9      & ~      & ~      & ~      \\ \hline
 \end{tabular}
-
 
 ~\\
 Setter inn verdien $87$: $87 \mod 5 = 2$\\
-Det finnes ingen ledig post for verdien.\\
-\begin{tabular}{|l|l|l|lll}
+\begin{tabular}{|l|l|l|l|l|}
     \hline
-    Adresse & Post 1 & Post 2	& ~ \\
-    0       & ~      & ~      \\
-    1       & 1      & 11      \\
-    2       & 12     & 22	& 37	&   87 \\
-    3       & 3      & 18     \\
-    4       & 9      & ~      \\ \hline
+    Adresse & Post 1 & Post 2 & Of1 p1 & Of1 p2 \\
+    0       & ~      & ~      & ~      & ~      \\
+    1       & 1      & 11     & ~      & ~      \\
+    2       & 12     & 22     & 37     & 87     \\
+    3       & 3      & 18     & ~      & ~      \\
+    4       & 9      & ~      & ~      & ~      \\ \hline
 \end{tabular}
 
 ~\\
 Setter inn verdien $2$: $2 \mod 5 = 2$\\
-Det finnes ingen ledig post for verdien.\\
-\begin{tabular}{|l|l|l|lll}
+Det finnes ingen ledig post for verdien, så vi må opprette en ny overflyts-blokk.\\
+\begin{tabular}{|l|l|l|l|l|l|l|}
     \hline
-    Adresse & Post 1 & Post 2	& ~ \\
-    0       & ~      & ~      \\
-    1       & 1      & 11      \\
-    2       & 12     & 22	& 37	&   87	&   2\\
-    3       & 3      & 18     \\
-    4       & 9      & ~      \\ \hline
+    Adresse & Post 1 & Post 2 & Of1 p1 & Of1 p2 & Of2 p1 & Of2 p2 \\
+    0       & ~      & ~      & ~      & ~      & ~      & ~      \\
+    1       & 1      & 11     & ~      & ~      & ~      & ~      \\
+    2       & 12     & 22     & 37     & 87     & 2      & ~      \\
+    3       & 3      & 18     & ~      & ~      & ~      & ~      \\
+    4       & 9      & ~      & ~      & ~      & ~      & ~      \\ \hline
 \end{tabular}
 
 ~\\
 Setter inn verdien $1$: $1 \mod 5 = 1$\\
 Det finnes ingen ledig post for verdien.\\
-\begin{tabular}{|l|l|l|lll}
+\begin{tabular}{|l|l|l|l|l|l|l|}
     \hline
-    Adresse & Post 1 & Post 2	& ~ \\
-    0       & ~      & ~      \\
-    1       & 1      & 11   &	1      \\
-    2       & 12     & 22	& 37	&   87	&   2\\
-    3       & 3      & 18     \\
-    4       & 9      & ~      \\ \hline
+    Adresse & Post 1 & Post 2 & Of1 p1 & Of1 p2 & Of2 p1 & Of2 p2 \\
+    0       & ~      & ~      & ~      & ~      & ~      & ~      \\
+    1       & 1      & 11     & 1      & ~      & ~      & ~      \\
+    2       & 12     & 22     & 37     & 87     & 2      & ~      \\
+    3       & 3      & 18     & ~      & ~      & ~      & ~      \\
+    4       & 9      & ~      & ~      & ~      & ~      & ~      \\ \hline
 \end{tabular}
 \end{document}
