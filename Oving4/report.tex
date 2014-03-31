@@ -117,6 +117,13 @@ Vi har en relasjon $R(A,B,C,D)$ med funksjonelle avhengigheter $F = \{A \rightar
 Ser at denne fremgangsmåten er fulgt for å komme fra til dekomponeringen i oppgaven. Ettersom denne fremgangsmåten bevarer funksjonelle avhengigheter og garanterer lossless-join, er dette et godt valg.
 
 \section{Oppgave 2}
+\subsection{a)}
+
+Siden løvnodene er indeksposter med pekere til blokkidentifikatorer har dette B-treet bare indeksposter. Med 4 bytes per primærnøkkel og 4 bytes per blokkidentifikator vil hver post trenge 8 bytes. (Antar ingen ekstra meta-/administrasjonsdata) Antar vi en fyllfaktor på 67\% vil vi i gjennomsnitt få plass til $^{4096}/_{8} * 0.67 = 343$ poster i hver blokk. På nederste nivå vil vi da trenge $^{200000}/_{343} = 584$ blokker. For de tilsvarende 584 indekspostene på nivået over trenger vi to blokker. Vi trenger så en rotblokk for å indekserer disse to.
+
+\subsection{b)}
+
+Vi trenger en diskaksess for rotblokka, og en til for en av de to blokkene på neste nivå. Deretter må løvnodeblokka leses inn, oppdateres og skrives tilbake. (Tre aksesser her) Til sist må det samme gjøres for datalagringsblokka. (Tre til her) Til sammen får vi åtte aksesser. Dette under antagelsen at ingen av blokkene ligger i buffer.
 
 \newpage
 \input{opg3}
