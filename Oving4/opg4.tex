@@ -1,0 +1,5 @@
+\section{Oppgave 4}
+
+\subsection{a)}
+
+Siden den dominante spørringen er \texttt{SELECT * FROM vin WHERE vinnavn=v}, vil det beste alternativet være å hashe indeksene, under antagelsen at \texttt{vinnavn} er nøkkel. Dette fordi vi spør etter en konkret rad i tabellen, og hashing gir oss dermed oppslag i $O(1)$ tid. Dersom vi potensielt spurte etter flere rader (f.eks. \texttt{SELECT * FROM vin WHERE produsent=p}) ville et B+-tre være det beste valget ettersom det garanterer $O(log(n))$ oppslagstid, mens det med hashing ville ta $O(n)$ tid.
