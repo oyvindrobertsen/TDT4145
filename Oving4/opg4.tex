@@ -2,4 +2,4 @@
 
 \subsection{a)}
 
-Siden den dominante spørringen er \texttt{SELECT * FROM vin WHERE vinnavn=v}, vil det beste alternativet være å hashe indeksene, under antagelsen at \texttt{vinnavn} er nøkkel. Dette fordi vi spør etter en konkret rad i tabellen, og hashing gir oss dermed oppslag i $O(1)$ tid. Dersom vi potensielt spurte etter flere rader (f.eks. \texttt{SELECT * FROM vin WHERE produsent=p}) ville et B+-tre være det beste valget ettersom det garanterer $O(log(n))$ oppslagstid, mens det med hashing ville ta $O(n)$ tid.
+Siden den dominante spørringen er \texttt{SELECT * FROM vin WHERE vinnavn=v}, vil det beste alternativet være å bruke et B+-tre for indeksene, under antagelsen at \texttt{vinnavn} er nøkkel. Selv om vi kan anta at \texttt{vinnavn} er unikt, vil databasen bruke en hel skann av alle indeksene, siden vi ikke kan si til databasen at vi spør etter akkurat ett element. Om hele tabellen skal skannes, vil både sortering og hashing resultere i oppslagstid på $O(n)$, mens et B+-tre garanterer $O(log(n))$.
