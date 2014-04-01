@@ -3,3 +3,7 @@
 \subsection{a)}
 
 Siden den dominante spørringen er \texttt{SELECT * FROM vin WHERE vinnavn=v}, vil det beste alternativet være å bruke et B+-tre for indeksene, under antagelsen at \texttt{vinnavn} er nøkkel. Selv om vi kan anta at \texttt{vinnavn} er unikt, vil databasen bruke en hel skann av alle indeksene, siden vi ikke kan si til databasen at vi spør etter akkurat ett element. Om hele tabellen skal skannes, vil både sortering og hashing resultere i oppslagstid på $O(n)$, mens et B+-tre garanterer $O(log(n))$.
+
+\subsection{b)}
+
+For å lagre Ansattrelasjonen vil vi trenge $400 * 100 / 4096 \approxx 10$ blokker.
