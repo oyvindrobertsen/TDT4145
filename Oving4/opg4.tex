@@ -2,8 +2,50 @@
 
 \subsection{a)}
 
-Siden den dominante spørringen er \texttt{SELECT * FROM vin WHERE vinnavn=v}, vil det beste alternativet være å bruke et B+-tre for indeksene, under antagelsen at \texttt{vinnavn} er nøkkel. Selv om vi kan anta at \texttt{vinnavn} er unikt, vil databasen bruke en hel skann av alle indeksene, siden vi ikke kan si til databasen at vi spør etter akkurat ett element. Om hele tabellen skal skannes, vil både sortering og hashing resultere i oppslagstid på $O(n)$, mens et B+-tre garanterer $O(log(n))$.
+%Siden den dominante spørringen er \texttt{SELECT * FROM vin WHERE vinnavn=v}, vil det beste alternativet være å bruke et B+-tre for indeksene, under antagelsen at \texttt{vinnavn} er nøkkel. Selv om vi kan anta at \texttt{vinnavn} er unikt, vil databasen bruke en hel skann av alle indeksene, siden vi ikke kan si til databasen at vi spør etter akkurat ett element. Om hele tabellen skal skannes, vil både sortering og hashing resultere i oppslagstid på $O(n)$, mens et B+-tre garanterer $O(log(n))$.
+
+Går ut i fra at viner fra forskjellige produsenter/land kan ha samme navn, altså at vinnavn ikke er en unik verdi.
+
+Med $n$ viner i databasen der søket resulterer i $m$ resultater kan vi uttrykke søketidene i de forskjellige tilfellene:
+
+Hvis dataene sorteres kan man bruke binærsøk: $log(n) + m$. Hvis det ikke er resultater blir det $log(n)$.
+
+Hvis dataene hashes (og hashing-algoritmen ikke skaper konflikter): $1 + m$. Hvis det ikke er resultater blir det $1$.
+
+Hvis dataene settes i et B+-tre $log(n)$. Hvis det ikke er resultater blir det $log(n)$.
+
+Ut i fra dette virker hashing mest naturlig, men det er avhengig av at det ikke blir konflikter. Absolutt verste tilfelle er der $n + m$ hvis alle nøklene hashes til det samme.
 
 \subsection{b)}
 
-For å lagre Ansattrelasjonen vil vi trenge $400 * 100 / 4096 \approxx 10$ blokker.
+For å lagre Ansattrelasjonen vil vi trenge $400 * 100 / 4096 \sim 10$ blokker.
+
+Hvis vi ikke indekserer noe vil det koste 10 diskoperasjoner å utføre SELECT-spørringene og 2 diskoperasjoner å utføre INSERT-oppdatering. 
+
+\[
+    10*p_1 + 10*p_2 + 2(1 - p_1 - p_2) = 8p_1 + 8p_2 + 2 = 8*0.1 + 8*0.5 + 2 = 0.8 + 4.0 + 2.0 = 6.8
+\]
+
+For å forsøke å optimisere Q1 kan vi indeksere på persnr slik at blir kostnaden for den blir 2 i stedet. Men da vil vi også måtte oppdatere indeksen etter I1, så kostnaden til I1 blir 4.
+
+\[
+    2*p_1 + 10*p_2 + 4(1 - p_1 - p_2) = -2p_1 + 6p_2 + 4 = -2*0.1 + 6*0.5 + 4 = -0.2 + 3.0 + 4.0 = 6.8
+\]
+
+Dette gir tilsynelatende ikke noe forbedring over ingen indeksering.
+
+For å optimisere Q2 kan vi indeksere på navn og avdnavn for å minke kostnaden til 2. Også her vil da kostnaden av I1 øke til 4.
+
+\[
+    10*p_1 + 2*p_2 + 4(1 - p_1 - p_2) = 6p_1 - 2p_2 + 4 = 6*0.1 - 2*0.5 + 4 = 0.6 - 1.0 + 4 = 3.6
+\]
+
+Det ga en betydelig forbedring.
+
+Det må også undersøkes om det kan tjenes enda mer på å indeksere slik at både Q1 og Q2 blir optimale, altså to separate indekser. Da vil kostnaden for I1 øke til 6.
+
+\[
+    2*p_1 + 2*p_2 + 6*(1 - p_1 - p_2) = -4p_1 - 4p_2 + 6 = -4*0.1 - 4*0.5 + 6 = -0.4 - 2.0 + 6 = 3.6
+\]
+
+Altså vil det (med gitte $p_n$) lønne seg å optimisere enten bare Q2 eller både Q1 og Q2.
